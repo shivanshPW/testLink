@@ -116,7 +116,6 @@
       <div id="controls">
           <div class="title-section">
               <div class="game-logo">🚀</div>
-              <!-- Game Title Updated -->
               <h1 class="game-title">AstroidDestroyer</h1>
           </div>
           <div class="btn-group">
@@ -130,9 +129,8 @@
       </div>
 
       <div id="unity-container">
-        <!-- Default canvas size is landscape, script will adjust it -->
+        <!-- Canvas size will be controlled by the script -->
         <canvas id="unity-canvas" width=1920 height=1080 tabindex="-1"></canvas>
-        <div id="unity-warning"></div>
       </div>
     </div>
 
@@ -162,16 +160,15 @@
           location.reload();
       }
 
-      // --- NEW: DEVICE DETECTION FUNCTION ---
+      // --- DEVICE DETECTION FUNCTION ---
       function isMobileDevice() {
         return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       }
 
-      // --- MODIFIED: SCALING AND LETTERBOXING LOGIC ---
+      // --- SCALING AND LETTERBOXING LOGIC ---
       function applyLetterboxing() {
           let targetAspectRatio;
 
-          // === NEW REQUIREMENT LOGIC ===
           // Check if the device is mobile and set aspect ratio accordingly
           if (isMobileDevice()) {
             // Portrait aspect ratio for mobile
@@ -180,7 +177,6 @@
             // Landscape aspect ratio for desktop
             targetAspectRatio = 16 / 9;
           }
-          // ==============================
           
           let containerWidth = unityContainer.offsetWidth;
           let containerHeight = unityContainer.offsetHeight;
@@ -200,24 +196,50 @@
           canvas.style.height = newHeight + 'px';
       }
 
+      // Add listeners to re-apply letterboxing on resize or orientation change
       window.addEventListener('resize', applyLetterboxing);
       window.addEventListener('orientationchange', applyLetterboxing);
 
-      function unityShowBanner(msg, type) { /* ... Unchanged ... */ }
+      // --- UNITY BANNER FUNCTION (FROM YOUR BASE FILE) ---
+      function unityShowBanner(msg, type) {
+        // This is a minimal implementation. You can customize it further if needed.
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        div.style.position = 'absolute';
+        div.style.top = '10px';
+        div.style.left = '10px';
+        div.style.padding = '10px';
+        div.style.color = 'white';
+        if (type == 'error') {
+            div.style.background = 'red';
+        } else if (type == 'warning') {
+            div.style.background = 'yellow';
+            div.style.color = 'black';
+        } else {
+            div.style.background = 'rgba(0,0,0,0.5)';
+        }
+        pageContainer.appendChild(div);
+        if (type != 'error') {
+          setTimeout(function() {
+            pageContainer.removeChild(div);
+          }, 5000);
+        }
+      }
 
+      // --- UNITY INSTANCE CONFIGURATION ---
       var buildUrl = "Build";
-      // === IMPORTANT: UPDATED FOR "Cosmic_Ratio" BUILD ===
-      var loaderUrl = buildUrl + "/Cosmic_Ratio.loader.js";
+      // === IMPORTANT: UPDATED FOR "Asteroid_destroyer" BUILD ===
+      var loaderUrl = buildUrl + "/Asteroid_destroyer.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/Cosmic_Ratio.data",
-        frameworkUrl: buildUrl + "/Cosmic_Ratio.framework.js",
-        codeUrl: buildUrl + "/Cosmic_Ratio.wasm",
+        dataUrl: buildUrl + "/Asteroid_destroyer.data",
+        frameworkUrl: buildUrl + "/Asteroid_destroyer.framework.js",
+        codeUrl: buildUrl + "/Asteroid_destroyer.wasm",
+        // === END OF CHANGES ===
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "AstroidDestroyer",
         productVersion: "1.1",
-        // === END OF CHANGES ===
         showBanner: unityShowBanner,
       };
 
@@ -238,6 +260,7 @@
         });
       };
       
+      // Listener to update the fullscreen button icon/text
       document.addEventListener('fullscreenchange', () => {
           const fullscreenButton = document.getElementById('fullscreen-button');
           if (document.fullscreenElement) {
@@ -245,7 +268,8 @@
           } else {
               fullscreenButton.innerHTML = '<span class="icon">⛶</span><span>Fullscreen</span>';
           }
-          setTimeout(applyLetterboxing, 100);
+          // A short delay helps the browser adjust before recalculating the canvas size
+          setTimeout(applyLetterboxing, 100); 
       });
 
       // Initial setup calls before loading starts
