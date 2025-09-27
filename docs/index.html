@@ -44,7 +44,7 @@
           flex-shrink: 0; /* Prevents the bar from shrinking */
       }
       
-      .title-section { display: flex; align-items: center; gap: 15px; }
+      .title-section { display: flex; align: items-center; gap: 15px; }
       
       .game-logo {
           width: 35px; height: 35px;
@@ -165,44 +165,32 @@
         return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       }
 
-      // --- SCALING LOGIC (MODIFIED TO "COVER" THE AREA) ---
+      // --- SCALING LOGIC (Using the "cover" logic from before) ---
       function applyLetterboxing() {
           let targetAspectRatio;
-
           if (isMobileDevice()) {
             targetAspectRatio = 9 / 16; 
           } else {
             targetAspectRatio = 16 / 9;
           }
-          
           let containerWidth = unityContainer.offsetWidth;
           let containerHeight = unityContainer.offsetHeight;
           let containerAspectRatio = containerWidth / containerHeight;
-          
           let newWidth, newHeight;
-
-          // === MODIFIED LOGIC START ===
-          // This "cover" logic fills the container, cropping the excess.
           if (containerAspectRatio > targetAspectRatio) {
-              // If container is wider than the game, match the width and let height overflow
               newWidth = containerWidth;
               newHeight = newWidth / targetAspectRatio;
           } else {
-              // If container is taller than the game, match the height and let width overflow
               newHeight = containerHeight;
               newWidth = newHeight * targetAspectRatio;
           }
-          // === MODIFIED LOGIC END ===
-          
           canvas.style.width = newWidth + 'px';
           canvas.style.height = newHeight + 'px';
       }
 
-      // Add listeners to re-apply on resize or orientation change
       window.addEventListener('resize', applyLetterboxing);
       window.addEventListener('orientationchange', applyLetterboxing);
 
-      // --- UNITY BANNER FUNCTION (FROM YOUR BASE FILE) ---
       function unityShowBanner(msg, type) {
         var div = document.createElement('div');
         div.innerHTML = msg;
@@ -211,23 +199,15 @@
         div.style.left = '10px';
         div.style.padding = '10px';
         div.style.color = 'white';
-        if (type == 'error') {
-            div.style.background = 'red';
-        } else if (type == 'warning') {
-            div.style.background = 'yellow';
-            div.style.color = 'black';
-        } else {
-            div.style.background = 'rgba(0,0,0,0.5)';
-        }
+        if (type == 'error') div.style.background = 'red';
+        else if (type == 'warning') { div.style.background = 'yellow'; div.style.color = 'black'; }
+        else div.style.background = 'rgba(0,0,0,0.5)';
         pageContainer.appendChild(div);
         if (type != 'error') {
-          setTimeout(function() {
-            pageContainer.removeChild(div);
-          }, 5000);
+          setTimeout(() => { pageContainer.removeChild(div); }, 5000);
         }
       }
 
-      // --- UNITY INSTANCE CONFIGURATION ---
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Asteroid_destroyer.loader.js";
       var config = {
@@ -250,16 +230,26 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
+        
+        // === MINIMAL FIX ADDED HERE ===
+        // This timer is a fallback. It will hide the loading overlay after 5 seconds
+        // in case the Unity instance fails to report that it has finished loading.
+        setTimeout(() => {
+          if (loadingOverlay) {
+            loadingOverlay.style.display = 'none';
+          }
+        }, 5000); // 5000 milliseconds = 5 seconds
+        // === END OF FIX ===
+        
         createUnityInstance(canvas, config, (progress) => {
           loadingText.innerHTML = `Loading... ${Math.round(progress * 100)}%`;
         }).then((unityInstance) => {
-          loadingOverlay.style.display = 'none';
+          loadingOverlay.style.display = 'none'; // The original line is kept
         }).catch((message) => {
           alert(message);
         });
       };
       
-      // Listener to update the fullscreen button icon/text
       document.addEventListener('fullscreenchange', () => {
           const fullscreenButton = document.getElementById('fullscreen-button');
           if (document.fullscreenElement) {
@@ -270,13 +260,11 @@
           setTimeout(applyLetterboxing, 100); 
       });
 
-      // Initial setup calls
       applyLetterboxing(); 
       document.body.appendChild(script);
     </script>
   </body>
 </html>
-
 <!-- <!DOCTYPE html>
 <html lang="en-us">
   <head>
