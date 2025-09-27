@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf--8">
+    <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | AstroidDestroyer</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
@@ -15,7 +15,7 @@
       }
       
       html, body {
-          background: #000; /* Black background for letterboxing */
+          background: #000;
           font-family: 'Roboto', sans-serif;
           overflow: hidden;
           width: 100%;
@@ -75,10 +75,7 @@
           box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
       }
       
-      .btn-secondary {
-          background: rgba(255, 255, 255, 0.1);
-          border: 2px solid rgba(255, 255, 255, 0.3);
-      }
+      .btn-secondary { background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.3); }
       
       #unity-container {
         flex: 1;
@@ -90,6 +87,7 @@
       
       #unity-canvas { background: #000; }
 
+      /* This CSS rule correctly hides the controls when the page is fullscreen */
       #page-container:fullscreen #controls { display: none; }
 
       #loading-overlay {
@@ -150,15 +148,9 @@
         return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       }
 
-      // --- SCALING LOGIC (REVERTED TO ORIGINAL "LETTERBOX" METHOD) ---
-      function applyLetterboxing() {
-          let targetAspectRatio;
-
-          if (isMobileDevice()) {
-            targetAspectRatio = 9 / 16; 
-          } else {
-            targetAspectRatio = 16 / 9;
-          }
+      // --- DYNAMIC SCALING LOGIC ---
+      function applyScaling() {
+          let targetAspectRatio = isMobileDevice() ? (9 / 16) : (16 / 9);
           
           let containerWidth = unityContainer.offsetWidth;
           let containerHeight = unityContainer.offsetHeight;
@@ -166,28 +158,38 @@
           
           let newWidth, newHeight;
 
-          // === REVERTED LOGIC START ===
-          // This "fit" logic creates black bars but is stable and prevents shader crashes.
-          if (containerAspectRatio > targetAspectRatio) {
-              newHeight = containerHeight;
-              newWidth = newHeight * targetAspectRatio;
+          // === MODIFIED LOGIC START ===
+          if (document.fullscreenElement) {
+              // FULLSCREEN MODE: Use "cover" logic to fill the screen.
+              if (containerAspectRatio > targetAspectRatio) {
+                  newWidth = containerWidth;
+                  newHeight = newWidth / targetAspectRatio;
+              } else {
+                  newHeight = containerHeight;
+                  newWidth = newHeight * targetAspectRatio;
+              }
           } else {
-              newWidth = containerWidth;
-              newHeight = newWidth / targetAspectRatio;
+              // WINDOWED MODE: Use "letterbox" logic for stability.
+              if (containerAspectRatio > targetAspectRatio) {
+                  newHeight = containerHeight;
+                  newWidth = newHeight * targetAspectRatio;
+              } else {
+                  newWidth = containerWidth;
+                  newHeight = newWidth / targetAspectRatio;
+              }
           }
-          // === REVERTED LOGIC END ===
+          // === MODIFIED LOGIC END ===
           
           canvas.style.width = newWidth + 'px';
           canvas.style.height = newHeight + 'px';
       }
 
-      window.addEventListener('resize', applyLetterboxing);
-      window.addEventListener('orientationchange', applyLetterboxing);
+      window.addEventListener('resize', applyScaling);
+      window.addEventListener('orientationchange', applyScaling);
 
       function unityShowBanner(msg, type) {
         var div = document.createElement('div');
         div.innerHTML = msg;
-        // Basic styling
         pageContainer.appendChild(div);
         setTimeout(() => { if (div.parentElement) div.parentElement.removeChild(div); }, 5000);
       }
@@ -209,13 +211,9 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
-        
-        // This fallback timer remains as a safety net for the original loading screen issue.
         setTimeout(() => {
-          if (loadingOverlay) {
-            loadingOverlay.style.display = 'none';
-          }
-        }, 5000); // 5 seconds
+          if (loadingOverlay) loadingOverlay.style.display = 'none';
+        }, 5000);
         
         createUnityInstance(canvas, config, (progress) => {
           loadingText.innerHTML = `Loading... ${Math.round(progress * 100)}%`;
@@ -233,10 +231,12 @@
           } else {
               fullscreenButton.innerHTML = '<span class="icon">⛶</span><span>Fullscreen</span>';
           }
-          setTimeout(applyLetterboxing, 100); 
+          // A short delay helps the browser adjust before recalculating the canvas size
+          setTimeout(applyScaling, 100); 
       });
 
-      applyLetterboxing(); 
+      // Initial call to set the correct size
+      applyScaling(); 
       document.body.appendChild(script);
     </script>
   </body>
