@@ -267,13 +267,30 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
+        console.log("Unity loader script loaded successfully");
         createUnityInstance(canvas, config, (progress) => {
+          console.log(`Loading progress: ${Math.round(progress * 100)}%`);
           loadingText.innerHTML = `Loading... ${Math.round(progress * 100)}%`;
         }).then((unityInstance) => {
+          console.log("Unity instance created successfully");
           loadingOverlay.style.display = 'none';
         }).catch((message) => {
-          alert(message);
+          console.error("Unity loading error:", message);
+          loadingText.innerHTML = `Error: ${message}`;
+          // Hide loading overlay after 3 seconds even if there's an error
+          setTimeout(() => {
+            loadingOverlay.style.display = 'none';
+          }, 3000);
         });
+      };
+      
+      script.onerror = () => {
+        console.error("Failed to load Unity loader script:", loaderUrl);
+        loadingText.innerHTML = "Error: Failed to load Unity files";
+        // Hide loading overlay after 3 seconds if script fails to load
+        setTimeout(() => {
+          loadingOverlay.style.display = 'none';
+        }, 3000);
       };
       
       // Enhanced fullscreen change listener
@@ -314,6 +331,14 @@
       // Initial setup calls before loading starts
       applyLetterboxing(); 
       document.body.appendChild(script);
+      
+      // Fallback: Hide loading overlay after 10 seconds if Unity hasn't loaded
+      setTimeout(() => {
+        if (loadingOverlay.style.display !== 'none') {
+          console.warn("Loading timeout - hiding overlay");
+          loadingOverlay.style.display = 'none';
+        }
+      }, 10000);
     </script>
   </body>
 </html>
