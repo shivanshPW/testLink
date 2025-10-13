@@ -18,69 +18,69 @@
       "reactor": 0,
 
       "containers": [
-        { "name": "Non-Metal", "id": "Non-Metal" },
-        { "name": "Metal", "id": "Metal" }
+        { "name": "HARMFUL", "id": "Synthethic" },
+        { "name": "FRIENDLY", "id": "Natural" }
       ],
 
       "items": [
         {
-          "id": "Fe",
-          "display_text": "Fe",
-          "correct_category_name": "Metal",
+          "id": "flu",
+          "display_text": "",
+          "correct_category_name": "HARMFUL",
           "presentation_mode": "NAME"
         },
         {
-          "id": "C",
-          "display_text": "C",
-          "correct_category_name": "Non-Metal",
+          "id": "malaria",
+          "display_text": "",
+          "correct_category_name": "HARMFUL",
           "presentation_mode": "NAME"
         },
         {
-          "id": "Cu",
-          "display_text": "Cu",
-          "correct_category_name": "Metal",
+          "id": "sacc",
+          "display_text": "",
+          "correct_category_name": "FRIENDLY",
           "presentation_mode": "NAME"
         },
         {
-          "id": "O",
-          "display_text": "O",
-          "correct_category_name": "Non-Metal",
+          "id": "yeast",
+          "display_text": "",
+          "correct_category_name": "FRIENDLY",
           "presentation_mode": "NAME"
         },
         {
-          "id": "Al",
-          "display_text": "Al",
-          "correct_category_name": "Metal",
+          "id": "typhoid",
+          "display_text": "",
+          "correct_category_name": "HARMFUL",
           "presentation_mode": "NAME"
         },
         {
-          "id": "S",
-          "display_text": "S",
-          "correct_category_name": "Non-Metal",
+          "id": "lactobacillus",
+          "display_text": "",
+          "correct_category_name": "FRIENDLY",
           "presentation_mode": "NAME"
         },
         {
-          "id": "Au",
-          "display_text": "Au",
-          "correct_category_name": "Metal",
+          "id": "chlorea",
+          "display_text": "",
+          "correct_category_name": "HARMFUL",
           "presentation_mode": "NAME"
         },
         {
-          "id": "Cl",
-          "display_text": "Cl",
-          "correct_category_name": "Non-Metal",
+          "id": "penincillium",
+          "display_text": "",
+          "correct_category_name": "FRIENDLY",
           "presentation_mode": "NAME"
         },
         {
-          "id": "Na",
-          "display_text": "Na",
-          "correct_category_name": "Metal",
+          "id": "rhizombium",
+          "display_text": "",
+          "correct_category_name": "FRIENDLY",
           "presentation_mode": "NAME"
         },
         {
-          "id": "H",
-          "display_text": "H",
-          "correct_category_name": "Non-Metal",
+          "id": "tb",
+          "display_text": "",
+          "correct_category_name": "HARMFUL",
           "presentation_mode": "NAME"
         }
       ]
@@ -89,87 +89,89 @@
     {
       "level": 2,
       "objective_text": "Observe the reactions and sort substances correctly!",
-      "conveyor_speed_modifier": 0.6,
+      "conveyor_speed_modifier": 0.5,
       "total_items_in_level": 10,
       "item_spawn_interval_seconds": 5,
       "xp_per_correct": 7,
       "xp_per_incorrect": -3,
       "combo_bonus_xp": 0,
       "target_xp": 70,
-      "reactor": 1,
+      "reactor": 0,
 
       "containers": [
-        { "name": "Non-Metal", "id": "Non-Metal" },
-        { "name": "Metal", "id": "Metal" }
+        { "name": "BACTERIA", "id": "BACTERIA" },
+        { "name": "VIRUS", "id": "VIRUS" },
+        { "name": "FUNGI", "id": "FUNGI" },
+        { "name": "PROTOZOA", "id": "PROTOZOA" }
       ],
       "items": [
         {
-          "id": "Ag",
-          "display_text": "Lustrous",
-          "correct_category_name": "Metal",
+          "id": "Typhoid",
+          "display_text": "Typhoid",
+          "correct_category_name": "BACTERIA",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "NO_REACTION"
         },
         {
-          "id": "P",
-          "display_text": "Brittle",
-          "correct_category_name": "Non-Metal",
+          "id": "Common Cold",
+          "display_text": "Common Cold",
+          "correct_category_name": "VIRUS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "NO_REACTION"
         },
         {
-          "id": "Zn",
-          "display_text": "Malleable",
-          "correct_category_name": "Metal",
+          "id": "Ringworm",
+          "display_text": "Ringworm",
+          "correct_category_name": "FUNGI",
           "presentation_mode": "PROPERTY_CUE",
           "hint_text": "No litmus change?"
         },
         {
-          "id": "I",
-          "display_text": "Non-Lustrous",
-          "correct_category_name": "Non-Metal",
+          "id": "Malaria",
+          "display_text": "Malaria",
+          "correct_category_name": "PROTOZOA",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "PH_INDICATOR_RED"
         },
         {
-          "id": "Pb",
-          "display_text": "conductor",
-          "correct_category_name": "Metal",
+          "id": "Tuberculosis",
+          "display_text": "Tuberculosis",
+          "correct_category_name": "BACTERIA",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "PH_INDICATOR_BLUE"
         },
         {
-          "id": "Br",
-          "display_text": "Vapor Cloud",
-          "correct_category_name": "Non-Metal",
+          "id": "Flu",
+          "display_text": "Breaks Down Waste",
+          "correct_category_name": "VIRUS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "PH_INDICATOR_GREEN"
         },
         {
-          "id": "Pt",
-          "display_text": "Shiny",
-          "correct_category_name": "Metal",
+          "id": "Athlete's Foot",
+          "display_text": "Highly Contagious",
+          "correct_category_name": "FUNGI",
           "presentation_mode": "PROPERTY_CUE",
           "hint_text": "Sour taste indicator?"
         },
         {
-          "id": "N",
-          "display_text": "Gas State",
-          "correct_category_name": "Non-Metal",
+          "id": "Amoebiasis",
+          "display_text": "Aids Digestion",
+          "correct_category_name": "PROTOZOA",
           "presentation_mode": "PROPERTY_CUE",
           "hint_text": "Bitter taste indicator?"
         },
         {
-          "id": "Hg",
-          "display_text": "Conductive Liquid",
-          "correct_category_name": "Metal",
+          "id": "Cholera",
+          "display_text": "Foot Infection",
+          "correct_category_name": "BACTERIA",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "NO_REACTION"
         },
         {
-          "id": "Ne",
-          "display_text": "Gas State",
-          "correct_category_name": "Non-Metal",
+          "id": "Measles",
+          "display_text": "Skin Infection",
+          "correct_category_name": "VIRUS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "METAL_BUBBLES"
         }
@@ -189,70 +191,70 @@
       "reactor": 0,
 
       "containers": [
-        { "name": "Metal", "icon": "weak_acid_beaker.png" },
-        { "name": "Non-Metal","icon": "strong_acid_beaker.png" },
-        { "name": "Metalloid","icon": "weak_base_beaker.png" }
+        { "name": "USED-IN-FOOD", "icon": "weak_acid_beaker.png" },
+        { "name": "CAUSES-DISEASE","icon": "strong_acid_beaker.png" },
+        { "name": "USED-IN-MEDICINE","icon": "weak_base_beaker.png" }
         ],
 
       "items": [
         {
-          "id": "Mg",
+          "id": "cough",
           "display_text": "",
-          "correct_category_name": "Metal",
+          "correct_category_name": "CAUSES-DISEAS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
-          "id": "S",
+          "id": "dengu",
           "display_text": "",
-          "correct_category_name": "Non-Metal",
+          "correct_category_name": "CAUSES-DISEASE",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
-          "id": "Si",
+          "id": "fermentation",
           "display_text": "",
-          "correct_category_name": "Metalloid",
+          "correct_category_name": "USED-IN-FOOD",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
-          "id": "Cr",
+          "id": "fermenter",
           "display_text": "",
-          "correct_category_name": "Metal",
+          "correct_category_name": "USED-IN-MEDICINE",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
-          "id": "C",
-          "display_text": "",
-          "correct_category_name": "Non-Metal",
+          "id": "h-i",
+          "display_text": "NA",
+          "correct_category_name": "CAUSES-DISEASE",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
-          "id": "Br",
+          "id": "perdish",
           "display_text": "",
-          "correct_category_name": "Metalloid",
+          "correct_category_name": "USED-IN-MEDICINE",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
-          "id": "Ca",
+          "id": "vaccine",
           "display_text": "",
-          "correct_category_name": "Metal",
+          "correct_category_name": "USED-IN-MEDICINE",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
-          "id": "Cl",
+          "id": "rootnodule",
           "display_text": "",
-          "correct_category_name": "Non-Metal",
+          "correct_category_name": "CAUSES-DISEASE",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
-          "id": "Ge",
+          "id": "contamination",
           "display_text": "",
-          "correct_category_name": "Metalloid",
+          "correct_category_name": "CAUSES-DISEASE",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
-          "id": "Cu",
+          "id": "toothDecay",
           "display_text": "",
-          "correct_category_name": "Metal",
+          "correct_category_name": "CAUSES-DISEASE",
           "presentation_mode": "IMAGE_ONLY"
         }
       ]
