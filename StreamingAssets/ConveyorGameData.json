@@ -1,0 +1,277 @@
+{
+  "game_template": "Conveyor Classifier",
+  "topic": "Acids, Bases, and Salts",
+  "total_levels": 3,
+  "max_total_xp": 200,
+  
+  "levels": [
+    {
+      "level": 1,
+      "objective_text": "Sort substances into Acid, Base, or Neutral beakers!",
+      "conveyor_speed_modifier": 0.5,
+      "total_items_in_level": 10,
+      "item_spawn_interval_seconds": 6,
+      "xp_per_correct": 5,
+      "xp_per_incorrect": -2,
+      "combo_bonus_xp": 0,
+      "target_xp": 50,
+      "reactor": 0,
+
+      "containers": [
+        { "name": "Non-Metal", "id": "Non-Metal" },
+        { "name": "Metal", "id": "Metal" }
+      ],
+
+      "items": [
+        {
+          "id": "Fe",
+          "display_text": "Fe",
+          "correct_category_name": "Metal",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "C",
+          "display_text": "C",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "Cu",
+          "display_text": "Cu",
+          "correct_category_name": "Metal",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "O",
+          "display_text": "O",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "Al",
+          "display_text": "Al",
+          "correct_category_name": "Metal",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "S",
+          "display_text": "S",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "Au",
+          "display_text": "Au",
+          "correct_category_name": "Metal",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "Cl",
+          "display_text": "Cl",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "Na",
+          "display_text": "Na",
+          "correct_category_name": "Metal",
+          "presentation_mode": "NAME"
+        },
+        {
+          "id": "H",
+          "display_text": "H",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "NAME"
+        }
+      ]
+    },
+
+    {
+      "level": 2,
+      "objective_text": "Observe the reactions and sort substances correctly!",
+      "conveyor_speed_modifier": 0.6,
+      "total_items_in_level": 10,
+      "item_spawn_interval_seconds": 5,
+      "xp_per_correct": 7,
+      "xp_per_incorrect": -3,
+      "combo_bonus_xp": 0,
+      "target_xp": 70,
+      "reactor": 1,
+
+      "containers": [
+        { "name": "Non-Metal", "id": "Non-Metal" },
+        { "name": "Metal", "id": "Metal" }
+      ],
+      "items": [
+        {
+          "id": "Ag",
+          "display_text": "Lustrous",
+          "correct_category_name": "Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "NO_REACTION"
+        },
+        {
+          "id": "P",
+          "display_text": "Brittle",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "NO_REACTION"
+        },
+        {
+          "id": "Zn",
+          "display_text": "Malleable",
+          "correct_category_name": "Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "hint_text": "No litmus change?"
+        },
+        {
+          "id": "I",
+          "display_text": "Non-Lustrous",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "PH_INDICATOR_RED"
+        },
+        {
+          "id": "Pb",
+          "display_text": "conductor",
+          "correct_category_name": "Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "PH_INDICATOR_BLUE"
+        },
+        {
+          "id": "Br",
+          "display_text": "Vapor Cloud",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "PH_INDICATOR_GREEN"
+        },
+        {
+          "id": "Pt",
+          "display_text": "Shiny",
+          "correct_category_name": "Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "hint_text": "Sour taste indicator?"
+        },
+        {
+          "id": "N",
+          "display_text": "Gas State",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "hint_text": "Bitter taste indicator?"
+        },
+        {
+          "id": "Hg",
+          "display_text": "Conductive Liquid",
+          "correct_category_name": "Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "NO_REACTION"
+        },
+        {
+          "id": "Ne",
+          "display_text": "Gas State",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "PROPERTY_CUE",
+          "reaction_type": "METAL_BUBBLES"
+        }
+      ]
+    },
+
+    {
+      "level": 3,
+      "objective_text": "Expert sorting: Identify weak and strong acids/bases by image alone!",
+      "conveyor_speed_modifier": 0.5,
+      "total_items_in_level": 10,
+      "item_spawn_interval_seconds": 9,
+      "xp_per_correct": 8,
+      "xp_per_incorrect": -4,
+      "combo_bonus_xp": 0,
+      "target_xp": 80,
+      "reactor": 0,
+
+      "containers": [
+        { "name": "Metal", "icon": "weak_acid_beaker.png" },
+        { "name": "Non-Metal","icon": "strong_acid_beaker.png" },
+        { "name": "Metalloid","icon": "weak_base_beaker.png" }
+        ],
+
+      "items": [
+        {
+          "id": "Mg",
+          "display_text": "",
+          "correct_category_name": "Metal",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "S",
+          "display_text": "",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "Si",
+          "display_text": "",
+          "correct_category_name": "Metalloid",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "Cr",
+          "display_text": "",
+          "correct_category_name": "Metal",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "C",
+          "display_text": "",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "Br",
+          "display_text": "",
+          "correct_category_name": "Metalloid",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "Ca",
+          "display_text": "",
+          "correct_category_name": "Metal",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "Cl",
+          "display_text": "",
+          "correct_category_name": "Non-Metal",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "Ge",
+          "display_text": "",
+          "correct_category_name": "Metalloid",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "Cu",
+          "display_text": "",
+          "correct_category_name": "Metal",
+          "presentation_mode": "IMAGE_ONLY"
+        }
+      ]
+    }
+  ],
+
+  "star_rating_thresholds": {
+    "3_stars": 0.8,
+    "2_stars": 0.5,
+    "1_star": 0.0
+  },
+
+  "reaction_types_available": [
+    "LITMUS_RED",
+    "LITMUS_BLUE", 
+    "PH_INDICATOR_RED",
+    "PH_INDICATOR_BLUE",
+    "PH_INDICATOR_GREEN",
+    "METAL_BUBBLES",
+    "NO_REACTION"
+  ]
+}
