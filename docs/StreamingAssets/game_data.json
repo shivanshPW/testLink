@@ -41,21 +41,6 @@
             "isQuizCorrect": false
           },
           {
-            "id": 3,
-            "objectName": "tree",
-            "question": "What part of the tree produces oxygen?",
-            "answerOptions": [
-              "Roots",
-              "Trunk",
-              "Leaves",
-              "Bark"
-            ],
-            "correctAnswerIndex": 2,
-            "isFound": false,
-            "isQuizCompleted": false,
-            "isQuizCorrect": false
-          },
-          {
             "id": 4,
             "objectName": "soil",
             "question": "What color is healthy soil?",
@@ -66,6 +51,20 @@
               "Red"
             ],
             "correctAnswerIndex": 1,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          },          {
+            "id": 3,
+            "objectName": "tree",
+            "question": "What part of the tree produces oxygen?",
+            "answerOptions": [
+              "Roots",
+              "Trunk",
+              "Leaves",
+              "Bark"
+            ],
+            "correctAnswerIndex": 2,
             "isFound": false,
             "isQuizCompleted": false,
             "isQuizCorrect": false
