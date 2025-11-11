@@ -1,0 +1,152 @@
+{
+  "gameProgress": {
+    "currentSceneId": 0,
+    "totalGameScore": 0,
+    "scenes": [
+      {
+        "sceneId": 0,
+        "sceneName": "Nature Scene",
+        "isUnlocked": true,
+        "isCompleted": false,
+        "totalScore": 0,
+        "objects": [
+          {
+            "id": 1,
+            "objectName": "tomato",
+            "question": "What color is the tomato?",
+            "answerOptions": [
+              "Red",
+              "Green",
+              "Yellow",
+              "Orange"
+            ],
+            "correctAnswerIndex": 0,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          },
+          {
+            "id": 2,
+            "objectName": "hive",
+            "question": "What do bees make in a hive?",
+            "answerOptions": [
+              "Milk",
+              "Honey",
+              "Wax",
+              "Nectar"
+            ],
+            "correctAnswerIndex": 1,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          },
+          {
+            "id": 3,
+            "objectName": "tree",
+            "question": "What part of the tree produces oxygen?",
+            "answerOptions": [
+              "Roots",
+              "Trunk",
+              "Leaves",
+              "Bark"
+            ],
+            "correctAnswerIndex": 2,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          },
+          {
+            "id": 4,
+            "objectName": "soil",
+            "question": "What color is healthy soil?",
+            "answerOptions": [
+              "White",
+              "Brown",
+              "Blue",
+              "Red"
+            ],
+            "correctAnswerIndex": 1,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          },
+          {
+            "id": 5,
+            "objectName": "chameleon",
+            "question": "What special ability does a chameleon have?",
+            "answerOptions": [
+              "Flying",
+              "Swimming",
+              "Color changing",
+              "Glowing"
+            ],
+            "correctAnswerIndex": 2,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          },
+          {
+            "id": 6,
+            "objectName": "mushrooms",
+            "question": "Where do mushrooms typically grow?",
+            "answerOptions": [
+              "Desert",
+              "Ocean",
+              "Shady moist areas",
+              "Mountain peaks"
+            ],
+            "correctAnswerIndex": 2,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          },
+          {
+            "id": 7,
+            "objectName": "butterfly",
+            "question": "What stage comes before a butterfly?",
+            "answerOptions": [
+              "Tadpole",
+              "Caterpillar",
+              "Larva",
+              "Egg"
+            ],
+            "correctAnswerIndex": 1,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          },
+          {
+            "id": 8,
+            "objectName": "sun",
+            "question": "What does the sun provide to Earth?",
+            "answerOptions": [
+              "Water",
+              "Light and heat",
+              "Oxygen",
+              "Wind"
+            ],
+            "correctAnswerIndex": 1,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          },
+          {
+            "id": 9,
+            "objectName": "water",
+            "question": "What is the chemical formula for water?",
+            "answerOptions": [
+              "CO2",
+              "O2",
+              "H2O",
+              "N2"
+            ],
+            "correctAnswerIndex": 2,
+            "isFound": false,
+            "isQuizCompleted": false,
+            "isQuizCorrect": false
+          }
+        ]
+      }
+    ]
+  }
+}
